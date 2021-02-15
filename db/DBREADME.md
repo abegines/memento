@@ -57,7 +57,7 @@ iconoEstado
 Esta tabla  debe tener los registros A,B,X,Y,Z, pero pueden traducirse las descripciones y asignar prioridades.  
 A) Nueva, B) Asignada, X) Reabierta, Y) Terminada, Z) Cerrada  
 
-También pueden existir además otros casos que comienzan con estas letras para concretar aún más (por ejemplo, podría usarse B2 para "reasignaciones" de casos, pero ambos corresponden al estado principal "asignado").
+También pueden existir además otros estados que comienzan con estas letras para concretar aún más (por ejemplo, podría usarse B2 para "reasignaciones" de casos, pero ambos corresponden al estado principal "asignado").
 Los nuevos casos siempre comienzan con el estado “A”  
 
 Los flujos de estados posibles:  
