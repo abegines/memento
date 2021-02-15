@@ -1,40 +1,41 @@
 # Diseño de la base de datos
 
-### [Enum: Niveles]
-Nivel de privilegios que tiene el usuario.  
-Todos los usuarios comienzan siendo "Invitados", sólo un Administrador puede cambiar su nivel.  
-El primer usuario que accede desde "localhost" pasa a ser administrador si aún no hay ninguno.
+La base de datos almacena toda la información que queremos tener registrada de los casos, sus notas, adjuntos, etiquetado, etc.  
+Además de la información necesaria para establecer autenticación y autorización.  
 
-**Invitado** (I)  
+
+### [Enum: Niveles]
+Esta lista de valores permite establecer a cada usuario uno de los cinco niveles del privilegios que contempla la aplicación.
+
+* **Invitado** (I)  
 Sólo puede ver casos que sean públicos.  
 No pueden anotar.
 
-**Usuario** (U)  
+* **Usuario** (U)  
 Puede ver casos públicos, casos en los que figura como usuario y casos en los que está relacionado a través de CasoUsuario.
 Puede crear nuevos casos (con información básica: título, texto, Etapa e importancia, pero siempre a su nombre)
 Puede anotar en los casos en los que figura como usuario o está relacionado.
 
-**Colaborador** (C)  
+* **Colaborador** (C)  
 Se le pueden asignar casos.  
 Puede ver casos públicos, casos en los que figura como usuario y casos en los que está relacionado a través de CasoUsuario.
 También puede ver casos en los que está asignado como técnico.  
 Puede crear nuevos casos, incluso indicando que es para otro usuario, incluso asignándolos a otros técnicos.  
 
-**Técnico** (T)  
+* **Técnico** (T)  
 Se le pueden asignar casos.  
 Puede ver cualquier caso, excepto si son privados.  
 Puede crear nuevos casos, incluso indicando que es para otro usuario, incluso asignándolos a otros técnicos.  
 
-**Administrador** (A)  
+* **Administrador** (A)  
 Se le pueden asignar casos.  
 Puede ver cualquier caso, incluso los privados.   
 Marca y desmarca los casos como públicos/normales/privados.  
 
 ### Usuario
-Cada uno de los usuarios que accederán a la aplicación. 
-Los usuarios pueden “auto-enrolarse” como invitados.
-El primer usuario que accede desde “localhost” se convierte en administrador.
-Sólo un administrador puede cambiar su nivel.
+Esta tabla contiene un registro por cada usuario que se enrole en la aplicación.  
+Todos los usuarios comienzan siendo "Invitados" y sólo un Administrador puede cambiar su nivel.  
+El primer usuario que accede a la aplicación pasa a ser administrador si aún no hay ninguno definido.  
 ```
 numUsuario (pk, autonum)
 Email (tx) // la forma de asociar un login con el usuario…
@@ -56,7 +57,11 @@ esDisponible // si puede usarse para nuevos casos o se conserva para integridad 
 
 
 Esta tabla  debe tener los registros A,B,X,Y,Z, pero pueden traducirse las descripciones y asignar prioridades.  
-A) Nueva, B) Asignada, X) Reabierta, Y) Terminada, Z) Cerrada  
+* A) Nueva  
+* B) Asignada  
+* X) Reabierta  
+* Y) Terminada  
+* Z) Cerrada  
 
 También pueden existir además otros estados que comienzan con estas letras para concretar aún más (por ejemplo, podría usarse B2 para "reasignaciones" de casos, pero ambos corresponden al estado principal "asignado").
 Los nuevos casos siempre comienzan con el estado “A”  
