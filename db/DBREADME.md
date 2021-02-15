@@ -51,6 +51,7 @@ codEstado (pk, chars) [uno de ellos en blanco]
 nomEstado (tx)
 PrioridadEstado
 iconoEstado
+esDisponible // si puede usarse para nuevos casos o se conserva para integridad referencial
 ```
 
 
@@ -60,7 +61,7 @@ A) Nueva, B) Asignada, X) Reabierta, Y) Terminada, Z) Cerrada
 También pueden existir además otros estados que comienzan con estas letras para concretar aún más (por ejemplo, podría usarse B2 para "reasignaciones" de casos, pero ambos corresponden al estado principal "asignado").
 Los nuevos casos siempre comienzan con el estado “A”  
 
-Los flujos de estados posibles:  
+Los flujos de estados posibles, habría que crear tabla de transiciones que verbalice la acción:  
 ```
 Nuevo * -> A
 Asignar A -> B (primera vez)
@@ -95,6 +96,7 @@ nomEtapa
 PrioridadEtapa
 esParaTriaje
 iconoEtapa
+esDisponible // si puede usarse para nuevos casos o se conserva para integridad referencial
 ```
 
 ### Importancia
@@ -107,6 +109,7 @@ nomImportancia
 PrioridadImportancia
 esParaTriaje
 iconoImportancia
+esDisponible // si puede usarse para nuevos casos o se conserva para integridad referencial
 ```
 
 ### Etiqueta
@@ -118,6 +121,7 @@ Color (int32)
 cambiaAcceso (-1,0,+1) // al asignar esta etiqueta, cambia automáticamente el acceso del caso 
 //(no pueden haber dos etiquetas asociadas a un mismo caso que cambien a estados diferentes -1 ó +1)
 // Por tanto, podrán existir dos etiquetas "Privado" y "Público" al menos para permitir cambios de acceso
+esDisponible // si puede usarse para nuevos etiquetados o se conserva para integridad referencial
 ```
 
 ### Caso
