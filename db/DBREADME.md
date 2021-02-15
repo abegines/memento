@@ -173,7 +173,7 @@ mmtReabierto
 Acceso (-1 Público, 0 Normal, +1 Privado)
 ```
 
-### Nota
+### Tabla: Nota
 Registra una nota dentro de la bitácora de un caso.
 
 ```
@@ -199,8 +199,9 @@ NuevaEtapa (solamente si provoca cambio etapa)
 NuevaImportancia (solamente si provoca cambio importancia)
 
 ```
+(COMO VAMOS A ENCRIPTAR COMENTARIOS Y ADJUNTOS???)
 
-### Adjunto
+### Tabla: Adjunto
 Permite asociar a una nota de un caso un archivo adjunto (imagen, pdf, etc.)
 
 ```
@@ -212,7 +213,7 @@ BlobAdjunto // el adjunto en un blob
 mmtAdjunto // el momento en que se adjuntó
 ```
 
-### CasoEtiqueta
+### Tabla: CasoEtiqueta
 Permite asociar un caso con una de las etiquetas definidas
 
 ```
@@ -222,7 +223,7 @@ numEtiquetador (pk Usuario) // el usuario que ha etiquetado
 mmtEtiquetado (datetime) // el momento en que se etiquetó
 ```
 
-### CasoUsuario
+### Tabla: CasoUsuario
 Permite asociar un caso con usuarios adicionales  
 Para que pueda consultarlo aunque no sea el usuario y técnico asignados  
 ```
@@ -232,7 +233,7 @@ numAsociador (pk Usuario) // el usuario que lo ha asociado
 mmtAsociacion (datetime) // el momento en que se asoció
 ```  
 
-### Sesión (en memoria?)  
+### Colección: Sesión (en memoria?)  
 Cada una de las sesiones que se mantienen activas en este momento en la aplicación.  
 ```
 idSesion (pk, guid)
