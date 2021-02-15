@@ -66,6 +66,7 @@ Estos casos pueden ser vistos por los usuarios/colaboradores relacionados, todos
 
 **Privado** (+1)  
 Estos casos pueden ser vistos solamente por los usuarios/colaboradores/técnicos relacionados y los administradores.
+Si un usuario quiere que sólo él pueda verlo debe asignarse como usuario y técnico del caso.
 
 
 ### Etapa
@@ -82,7 +83,7 @@ iconoEtapa
 ```
 
 ### Importancia
-La importancia del caso, para jugar con prioridades y poder pondérale un “flame” o algo así.
+La importancia del caso, para jugar con prioridades y poder ponerle un “flame” o algo así.
 O para marcar casos como “top 100”, etc…
 (p.ej. Normal, Importante, Caso Top )
 ```
@@ -99,6 +100,9 @@ iconoImportancia
 numEtiqueta (pk, autonum)
 Etiqueta (tx)
 Color (int32)
+cambiaAcceso (-1,0,+1) // al asignar esta etiqueta, cambia automáticamente el acceso del caso 
+//(no pueden haber dos etiquetas asociadas a un mismo caso que cambien a estados diferentes -1 ó +1)
+// Por tanto, podrán existir dos etiquetas "Privado" y "Público" al menos para permitir cambios de acceso
 ```
 
 ### Caso
@@ -185,8 +189,6 @@ numUsuario (pk Usuario) // el usuario que está relacionado
 numAsociador (pk Usuario) // el usuario que lo ha asociado
 mmtAsociacion (datetime) // el momento en que se asoció
 ```  
-
-
 
 ### Sesión (en memoria?)  
 Cada una de las sesiones que se mantienen activas en este momento en la aplicación.  
