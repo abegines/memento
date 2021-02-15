@@ -45,8 +45,18 @@ esActivo (t/f)
 ### Estado 
 
 Los valores posibles del estado de asignación y terminación que tiene un caso  
-A) Nueva, B) Asignada, X) Reabierta, Y) Terminada, Z) Cerrada  
+
+```
+codEstado (pk, chars) [uno de ellos en blanco]
+nomEstado (tx)
+PrioridadEstado
+iconoEstado
+```
+
+
 Esta tabla  debe tener los registros A,B,X,Y,Z, pero pueden traducirse las descripciones y asignar prioridades.  
+A) Nueva, B) Asignada, X) Reabierta, Y) Terminada, Z) Cerrada  
+
 También pueden existir además otros casos que comienzan con estas letras para concretar aún más (por ejemplo, podría usarse B2 para "reasignaciones" de casos, pero ambos corresponden al estado principal "asignado").
 Los nuevos casos siempre comienzan con el estado “A”  
 
@@ -58,15 +68,6 @@ Reasignar B -> B2 (cambio de técnico)
 Terminar B -> Y 
 Cerrar Y -> Z
 Reabrir Y > X, Z > X
-```
-
-
-
-```
-codEstado (pk, chars) [uno de ellos en blanco]
-nomEstado (tx)
-PrioridadEstado
-iconoEstado
 ```
 
 ### [Enum: Acceso]
