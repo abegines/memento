@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>Memento</title>
-    <meta name="apple-mobile-web-app-title" content="Memento">
+    <meta name="apple-mobile-web-app-title" content="memento">
     <meta name="theme-color" content="#FF0000">
     <meta name="apple-mobile-web-app-status-bar" content="#FF0000">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-traslucent">
@@ -43,14 +43,14 @@
     </noscript>
   </head>
 
-  <body class="w3-white">
+  <body class="w3-dark-gray">
     <div id ="panLogin" class="apu-pantalla w3-center w3-red">
       
-      <div class="w3-xxlarge w3-text-dark-gray w3-yellow w3-margin w3-round w3-card-4">
+      <div class="w3-xxlarge w3-text-dark-gray w3-amber w3-margin w3-round w3-card-4">
         <img src="/appimg/icons/frog.svg" height="32">&nbsp;
         <span class="fa fa-frog"></span>&nbsp;
         &#x1F438;&nbsp;
-        memento
+        <strong>memento</strong>
       </div>
 
       <div id="offLine" class="tab-onoff w3-large w3-display-middle w3-dark-gray w3-padding w3-round w3-card-4">
@@ -61,7 +61,7 @@
       </div>
 
       <div id="onLine" class="tab-onoff w3-display-middle">
-        <div id="cardLogin" class="w3-yellow w3-text-dark-gray w3-large w3-padding w3-round w3-card-4">
+        <div id="cardLogin" class="w3-amber w3-text-dark-gray w3-large w3-padding w3-round w3-card-4">
           <p>Acceder con...</p>
           <img id="botMicrosoft" alt="Signin with Microsoft" class="w3-btn w3-round apu-nopadding" src="/img/ms-symbollockup_signin_dark.png">
           <br><br>
@@ -69,7 +69,7 @@
           <br>
         </div>
         
-        <div id="cardInstall" class="w3-yellow w3-text-red w3-padding w3-round w3-card-4 w3-small w3-margin-top">
+        <div id="cardInstall" class="w3-amber w3-text-red w3-padding w3-round w3-card-4 w3-small w3-margin-top">
           <p>Ten siempre la aplicación a mano como un icono en la pantalla principal</p>
           <div id="botInstalar" class="w3-btn w3-round w3-padding w3-red w3-text-white w3-font-bold"><strong>Instalar</strong></div>
           <div id="botLog" class="w3-btn w3-round w3-padding w3-gray w3-hide">my log</div>
@@ -80,10 +80,13 @@
     <div id ="panPrincipal" class="apu-pantalla">
       
       <div class="apu-franjaarriba">
-        <div class="w3-yellow w3-text-dark-gray w3-xxlarge w3-center" >
-          &#x1F425;&nbsp;memento
+        <div class="w3-xxlarge w3-text-dark-gray w3-amber w3-center">
+          <img src="/appimg/icons/frog.svg" height="32">&nbsp;
+          <span class="fa fa-frog"></span>&nbsp;
+          &#x1F438;&nbsp;
+          <strong>memento</strong>
         </div>
-        <div class="w3-bar w3-dark-gray">
+        <div class="w3-bar w3-black w3-text-amber">
           <button id="botFicha" class="w3-bar-item w3-button">Ficha</button>
           <button id="botImagenes" class="w3-bar-item w3-button">Imágenes</button>
           <button id="botDerechos" class="w3-bar-item w3-button">Derechos</button>
@@ -91,8 +94,9 @@
         </div>
       </div>
 
-      <div id="tabFicha" class="apu-tab apu-franjascrollvertical">
-        <div class="w3-container w3-margin">
+      <div id="tabFicha" class="apu-tab w3-dark-gray w3-text-amber">
+        <div class="w3-container">
+
           <div id="txtUserName" class="w3-xlarge"></div>
           <div id="txtUserEmail" class="w3-small"></div>
           <br>
@@ -107,9 +111,10 @@
           <p>El veloz <strong>murciélago</strong> hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.</p>
 
         </div>
+
       </div> 
 
-      <div id="tabImagenes" class="apu-tab apu-franjascrollvertical w3-white">
+      <div id="tabImagenes" class="apu-tab w3-dark-gray w3-text-amber">
       
         <p><strong>Estamos en... </strong><span id="hiapu"></span></p>
         <p><strong>Hora del navegador: </strong><span id="horabrowser"></span></p>
@@ -128,7 +133,7 @@
         <p><strong>Hora del servidor: </strong><span id="horaservidor"></span></p>  
       </div>
 
-      <div id="tabDerechos" class="apu-tab apu-franjascrollvertical w3-light-gray">
+      <div id="tabDerechos" class="apu-tab w3-light-gray">
         <div class="w3-container">
           <h3>Preámbulo</h3> <p>Considerando que la libertad, la justicia y la paz en el mundo tienen por base el reconocimiento de la dignidad intrínseca y de los derechos iguales e inalienables de todos los miembros de la familia humana;</p> <p>Considerando que el desconocimiento y el menosprecio de los derechos humanos han originado actos de barbarie ultrajantes para la conciencia de la humanidad, y que se ha proclamado, como la aspiración más elevada del hombre, el advenimiento de un mundo en que los seres humanos, liberados del temor y de la miseria, disfruten de la libertad de palabra y de la libertad de creencias;</p> <p>Considerando esencial que los derechos humanos sean protegidos por un régimen de Derecho, a fin de que el hombre no se vea compelido al supremo recurso de la rebelión contra la tiranía y la opresión;</p> 
           <p>Considerando también esencial promover el desarrollo de relaciones amistosas entre las naciones;</p> <p>Considerando que los pueblos de las Naciones Unidas han reafirmado en la Carta su fe en los derechos fundamentales del hombre, en la dignidad y el valor de la persona humana y en la igualdad de derechos de hombres y mujeres, y se han declarado resueltos a promover el progreso social y a elevar el nivel de vida dentro de un concepto más amplio de la libertad;</p> <p>Considerando que los Estados Miembros se han comprometido a asegurar, en cooperación con la Organización de las Naciones Unidas, el respeto universal y efectivo a los derechos y libertades fundamentales del hombre, y</p> 
@@ -158,7 +163,7 @@
       </div> 
 
       <div class="apu-franjaabajo">
-        <div class="w3-yellow w3-text-dark-gray w3-small w3-center w3-footer">Hecho con APU</div>
+        <div class="w3-amber w3-text-dark-gray w3-small w3-center w3-footer">Hecho con APU</div>
       </div>
     </div>
 
