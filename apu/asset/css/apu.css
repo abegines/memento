@@ -1,0 +1,41 @@
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.apu-pantalla {
+  height: 100%;
+  width: 100%;
+  overflow: auto; 
+}
+
+.apu-franjaarriba {
+  overflow: hidden;
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
+}
+
+.apu-franjaabajo {
+  overflow: hidden;
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+}
+
+.apu-franjascrollvertical {
+  overflow: scroll;
+  margin-top: 92px;
+  margin-bottom: 16px;
+}
+
+.apu-nomargin {
+  margin: 0px 0px 0px 0px;
+}
+
+.apu-nopadding {
+  padding: 0px 0px 0px 0px;
+}

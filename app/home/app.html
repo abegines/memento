@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es-ES" class="w3-gray">
+
+  <head>
+    <meta charset="utf-8">
+    <title>la Aplicación APU</title>
+    <meta name="apple-mobile-web-app-title" content="la Aplicación">
+    <meta name="theme-color" content="#FF0000">
+    <meta name="apple-mobile-web-app-status-bar" content="#FF0000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-traslucent">
+    <meta name="description" content="una aplicación APU">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="apple-touch-icon" href="/appimg/icons/icon-128x128.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/appimg/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/appimg/icons/icon-128x128.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="/appimg/icons/icon-72x72.png">
+    
+    <meta name="google-signin-client_id" content="852697990724-65ooqt5uba0fvfgjolr7qirjldhcn3ip.apps.googleusercontent.com">
+
+    <link rel="manifest" href="/manifest.json">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/css/w3.css">
+    <link rel="stylesheet" href="/css/apu.css">
+    <link rel="stylesheet" href="/app.css">
+
+    <script src="/apulib/apulib.js"></script>           
+    <script src="/fca/fca.js"></script>    
+    <script src="/fcg/fcg.js"></script>
+    <script src="/app.js"></script>    
+                 
+    <!-- <script src="https://apis.google.com/js/platform.js"></script> -->
+    <script src="/js/apisgoogleplatform.js?onload=initGoogleApi" async defer></script>
+    
+    <!-- <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.1.2/js/msal.js"></script> -->
+    <script src="/js/msal.js"></script>
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=noscript.html">
+    </noscript>
+  </head>
+
+  <body class="w3-white">
+    <div id ="panLogin" class="apu-pantalla w3-center w3-red">
+      
+      <div class="w3-xxlarge w3-red w3-margin w3-round w3-card-4">
+            la Aplicación
+      </div>
+
+      <div id="offLine" class="tab-onoff w3-large w3-display-middle w3-white w3-padding w3-round w3-card-4">
+        <p>No estás conectado a red</p>
+        <br><br>
+        <div id="offLineReintentar" class="w3-btn w3-round w3-padding w3-black">Reintentar</div>
+        <br><br>
+      </div>
+
+      <div id="onLine" class="tab-onoff w3-display-middle">
+        <div id="cardLogin" class="w3-light-gray w3-large w3-padding w3-round w3-card-4">
+          <p>Acceder con...</p>
+          <img id="botMicrosoft" alt="Signin with Microsoft" class="w3-btn w3-round apu-nopadding" src="/img/ms-symbollockup_signin_dark.png">
+          <br><br>
+          <img id="botGoogle"  alt="Signin with Google"  class="w3-btn w3-round apu-nopadding" src="/img/btn_google_signin_dark_normal_web.png">
+          <br>
+        </div>
+        
+        <div id="cardInstall" class="w3-light-gray w3-padding w3-round w3-card-4 w3-small w3-margin-top">
+          <p>Ten siempre la aplicación a mano como un icono en la pantalla principal</p>
+          <div id="botInstalar" class="w3-btn w3-round w3-padding w3-red w3-text-white w3-font-bold"><strong>Instalar</strong></div>
+          <div id="botLog" class="w3-btn w3-round w3-padding w3-gray w3-hide">my log</div>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div id ="panPrincipal" class="apu-pantalla">
+      
+      <div class="apu-franjaarriba">
+        <div class="w3-red w3-xxlarge w3-center" >
+          la Aplicación
+        </div>
+        <div class="w3-bar w3-black">
+          <button id="botFicha" class="w3-bar-item w3-button">Ficha</button>
+          <button id="botImagenes" class="w3-bar-item w3-button">Imágenes</button>
+          <button id="botDerechos" class="w3-bar-item w3-button">Derechos</button>
+          <button id="botMenu" class="w3-bar-item w3-button w3-right">&#x2630;</button>
+        </div>
+      </div>
+
+      <div id="tabFicha" class="apu-tab apu-franjascrollvertical">
+        <div class="w3-container w3-margin">
+          <div id="txtUserName" class="w3-xlarge"></div>
+          <div id="txtUserEmail" class="w3-small"></div>
+          <br>
+          <img id="imgUserPicture" src="" class="w3-circle" alt="imágen de usuario">
+          <br>
+          <button id="botMenuLogout" class="w3-margin-bottom w3-btn w3-black w3-margin">Logout</button>
+          <br>
+          <button id="muestraLog" class="w3-btn w3-green w3-margin">Muestra log...</button>
+          <br>
+          <button id="muestraWait" class="w3-btn w3-green w3-margin">Wait...</button>
+
+          <p>El veloz <strong>murciélago</strong> hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.</p>
+
+        </div>
+      </div> 
+
+      <div id="tabImagenes" class="apu-tab apu-franjascrollvertical w3-white">
+      
+        <p><strong>Estamos en... </strong><span id="hiapu"></span></p>
+        <p><strong>Hora del navegador: </strong><span id="horabrowser"></span></p>
+        <img class="w3-card w3-margin" src="/appimg/apudemo.jpg">
+        <br>
+        <img class="w3-card w3-margin" src="/appimg/apudemo.jpg">
+        <br>
+        <img class="w3-card w3-margin" src="/appimg/apudemo.jpg">
+        <br>
+        <img class="w3-card w3-margin" src="/appimg/apudemo.jpg">
+        <br>
+        <img class="w3-card w3-margin" src="/appimg/apudemo.jpg">
+        <br>
+        <img class="w3-card w3-margin" src="/appimg/apudemo.jpg">
+        <br>
+        <p><strong>Hora del servidor: </strong><span id="horaservidor"></span></p>  
+      </div>
+
+      <div id="tabDerechos" class="apu-tab apu-franjascrollvertical w3-light-gray">
+        <div class="w3-container">
+          <h3>Preámbulo</h3> <p>Considerando que la libertad, la justicia y la paz en el mundo tienen por base el reconocimiento de la dignidad intrínseca y de los derechos iguales e inalienables de todos los miembros de la familia humana;</p> <p>Considerando que el desconocimiento y el menosprecio de los derechos humanos han originado actos de barbarie ultrajantes para la conciencia de la humanidad, y que se ha proclamado, como la aspiración más elevada del hombre, el advenimiento de un mundo en que los seres humanos, liberados del temor y de la miseria, disfruten de la libertad de palabra y de la libertad de creencias;</p> <p>Considerando esencial que los derechos humanos sean protegidos por un régimen de Derecho, a fin de que el hombre no se vea compelido al supremo recurso de la rebelión contra la tiranía y la opresión;</p> 
+          <p>Considerando también esencial promover el desarrollo de relaciones amistosas entre las naciones;</p> <p>Considerando que los pueblos de las Naciones Unidas han reafirmado en la Carta su fe en los derechos fundamentales del hombre, en la dignidad y el valor de la persona humana y en la igualdad de derechos de hombres y mujeres, y se han declarado resueltos a promover el progreso social y a elevar el nivel de vida dentro de un concepto más amplio de la libertad;</p> <p>Considerando que los Estados Miembros se han comprometido a asegurar, en cooperación con la Organización de las Naciones Unidas, el respeto universal y efectivo a los derechos y libertades fundamentales del hombre, y</p> 
+          <p>Considerando que una concepción común de estos derechos y libertades es de la mayor importancia para el pleno cumplimiento de dicho compromiso;</p> <p>LA ASAMBLEA GENERAL proclama la presente DECLARACIÓN UNIVERSAL DE DERECHOS HUMANOS como ideal común por el que todos los pueblos y naciones deben esforzarse, a fin de que tanto los individuos como las instituciones, inspirándose constantemente en ella, promuevan, mediante la enseñanza y la educación, el respeto a estos derechos y libertades, y aseguren, por medidas progresivas de carácter nacional e internacional, su reconocimiento y aplicación universales y efectivos, tanto entre los pueblos de los Estados Miembros como entre los de los territorios colocados bajo su jurisdicción.&nbsp;</p> 
+          <h4>Artículo 1&nbsp;</h4> <p> Todos los seres humanos nacen libres e iguales en dignidad y derechos y, dotados como están de razón y conciencia, deben comportarse fraternalmente los unos con los otros.</p> 
+          <h4>Artículo 2&nbsp;</h4> <p>Toda persona tiene todos los derechos y libertades proclamados en esta Declaración, sin distinción alguna de raza, color, sexo, idioma, religión, opinión política o de cualquier otra índole, origen nacional o social, posición económica, nacimiento o cualquier otra condición. Además, no se hará distinción alguna fundada en la condición política, jurídica o internacional del país o territorio de cuya jurisdicción dependa una persona, tanto si se trata de un país independiente, como de un territorio bajo administración fiduciaria, no autónomo o sometido a cualquier otra limitación de soberanía.</p> <h4>Artículo 3&nbsp;</h4> <p>Todo individuo tiene derecho a la vida, a la libertad y a la seguridad de su persona.</p> <h4>Artículo 4&nbsp;</h4> <p>Nadie estará sometido a esclavitud ni a servidumbre, la esclavitud y la trata de esclavos están prohibidas en todas sus formas.</p> <h4>Artículo 5&nbsp;</h4> <p>Nadie será sometido a torturas ni a penas o tratos crueles, inhumanos o degradantes.</p> <h4>Artículo 6&nbsp;</h4> <p>Todo ser humano tiene derecho, en todas partes, al reconocimiento de su personalidad jurídica.</p> <h4>Artículo 7&nbsp;</h4> <p>Todos son iguales ante la ley y tienen, sin distinción, derecho a igual protección de la ley. Todos tienen derecho a igual protección contra toda discriminación que infrinja esta Declaración y contra toda provocación a tal discriminación.</p> 
+          <h4>Artículo 8&nbsp;</h4> <p>Toda persona tiene derecho a un recurso efectivo ante los tribunales nacionales competentes, que la ampare contra actos que violen sus derechos fundamentales reconocidos por la constitución o por la ley.</p> <h4>Artículo 9&nbsp;</h4> <p>Nadie podrá ser arbitrariamente detenido, preso ni desterrado.</p> <h4>Artículo 10&nbsp;</h4> <p>Toda persona tiene derecho, en condiciones de plena igualdad, a ser oída públicamente y con justicia por un tribunal independiente e imparcial, para la determinación de sus derechos y obligaciones o para el examen de cualquier acusación contra ella en materia penal.</p> 
+          <h4>Artículo 11&nbsp;</h4> <p>1. Toda persona acusada de delito tiene derecho a que se presuma su inocencia mientras no se pruebe su culpabilidad, conforme a la ley y en juicio público en el que se le hayan asegurado todas las garantías necesarias para su defensa.<br> 2. Nadie será condenado por actos u omisiones que en el momento de cometerse no fueron delictivos según el Derecho nacional o internacional. Tampoco se impondrá pena más grave que la aplicable en el momento de la comisión del delito.</p> <h4>Artículo 12&nbsp;</h4> <p>Nadie será objeto de injerencias arbitrarias en su vida privada, su familia, su domicilio o su correspondencia, ni de ataques a su honra o a su reputación. Toda persona tiene derecho a la protección de la ley contra tales injerencias o ataques.</p> 
+          <h4>Artículo 13&nbsp;</h4> <p>1. Toda persona tiene derecho a circular libremente y a elegir su residencia en el territorio de un Estado.<br> 2. Toda persona tiene derecho a salir de cualquier país, incluso del propio, y a regresar a su país.</p> <h4>Artículo 14&nbsp;</h4> <p>1. En caso de persecución, toda persona tiene derecho a buscar asilo, y a disfrutar de él, en cualquier país.<br> 2. Este derecho no podrá ser invocado contra una acción judicial realmente originada por delitos comunes o por actos opuestos a los propósitos y principios de las Naciones Unidas.</p> <h4>Artículo 15&nbsp;</h4> <p>1. Toda persona tiene derecho a una nacionalidad.<br> 2. A nadie se privará arbitrariamente de su nacionalidad ni del derecho a cambiar de nacionalidad.</p> 
+          <h4>Artículo 16&nbsp;</h4> <p>1. Los hombres y las mujeres, a partir de la edad núbil, tienen derecho, sin restricción alguna por motivos de raza, nacionalidad o religión, a casarse y fundar una familia, y disfrutarán de iguales derechos en cuanto al matrimonio, durante el matrimonio y en caso de disolución del matrimonio.<br> 2. Sólo mediante libre y pleno consentimiento de los futuros esposos podrá contraerse el matrimonio.<br> 3. La familia es el elemento natural y fundamental de la sociedad y tiene derecho a la protección de la sociedad y del Estado.</p> <h4>Artículo 17&nbsp;</h4> <p>1. Toda persona tiene derecho a la propiedad, individual y colectivamente.<br> 2. Nadie será privado arbitrariamente de su propiedad.</p> <h4>Artículo 18&nbsp;</h4> <p>Toda persona tiene derecho a la libertad de pensamiento, de conciencia y de religión; este derecho incluye la libertad de cambiar de religión o de creencia, así como la libertad de manifestar su religión o su creencia, individual y colectivamente, tanto en público como en privado, por la enseñanza, la práctica, el culto y la observancia.</p> 
+          <h4>Artículo 19&nbsp;</h4> <p>Todo individuo tiene derecho a la libertad de opinión y de expresión; este derecho incluye el de no ser molestado a causa de sus opiniones, el de investigar y recibir informaciones y opiniones, y el de difundirlas, sin limitación de fronteras, por cualquier medio de expresión.</p> <h4>Artículo 20&nbsp;</h4> <p>1. Toda persona tiene derecho a la libertad de reunión y de asociación pacíficas.<br> 2. Nadie podrá ser obligado a pertenecer a una asociación.</p> <h4>Artículo 21&nbsp;</h4> <p>1. Toda persona tiene derecho a participar en el gobierno de su país, directamente o por medio de representantes libremente escogidos.<br> 2. Toda persona tiene el derecho de acceso, en condiciones de igualdad, a las funciones públicas de su país.<br> 3. La voluntad del pueblo es la base de la autoridad del poder público; esta voluntad se expresará mediante elecciones auténticas que habrán de celebrarse periódicamente, por sufragio universal e igual y por voto secreto u otro procedimiento equivalente que garantice la libertad del voto.</p> 
+          <h4>Artículo 22&nbsp;</h4> <p>Toda persona, como miembro de la sociedad, tiene derecho a la seguridad social, y a obtener, mediante el esfuerzo nacional y la cooperación internacional, habida cuenta de la organización y los recursos de cada Estado, la satisfacción de los derechos económicos, sociales y culturales, indispensables a su dignidad y al libre desarrollo de su personalidad.</p> <h4>Artículo 23&nbsp;</h4> <p>1. Toda persona tiene derecho al trabajo, a la libre elección de su trabajo, a condiciones equitativas y satisfactorias de trabajo y a la protección contra el desempleo.<br> 2. Toda persona tiene derecho, sin discriminación alguna, a igual salario por trabajo igual.<br> 3. Toda persona que trabaja tiene derecho a una remuneración equitativa y satisfactoria, que le asegure, así como a su familia, una existencia conforme a la dignidad humana y que será completada, en caso necesario, por cualesquiera otros medios de protección social.<br> 4. Toda persona tiene derecho a fundar sindicatos y a sindicarse para la defensa de sus intereses.</p> 
+          <h4>Artículo 24&nbsp;</h4> <p>Toda persona tiene derecho al descanso, al disfrute del tiempo libre, a una limitación razonable de la duración del trabajo y a vacaciones periódicas pagadas.</p> <h4>Artículo 25&nbsp;</h4> <p>1. Toda persona tiene derecho a un nivel de vida adecuado que le asegure, así como a su familia, la salud y el bienestar, y en especial la alimentación, el vestido, la vivienda, la asistencia médica y los servicios sociales necesarios; tiene asimismo derecho a los seguros en caso de desempleo, enfermedad, invalidez, viudez, vejez u otros casos de pérdida de sus medios de subsistencia por circunstancias independientes de su voluntad.<br> 2. La maternidad y la infancia tienen derecho a cuidados y asistencia especiales. Todos los niños, nacidos de matrimonio o fuera de matrimonio, tienen derecho a igual protección social.</p> 
+          <h4>Artículo 26&nbsp;</h4> <p>1. Toda persona tiene derecho a la educación. La educación debe ser gratuita, al menos en lo concerniente a la instrucción elemental y fundamental. La instrucción elemental será obligatoria. La instrucción técnica y profesional habrá de ser generalizada; el acceso a los estudios superiores será igual para todos, en función de los méritos respectivos.<br> 2. La educación tendrá por objeto el pleno desarrollo de la personalidad humana y el fortalecimiento del respeto a los derechos humanos y a las libertades fundamentales; favorecerá la comprensión, la tolerancia y la amistad entre todas las naciones y todos los grupos étnicos o religiosos, y promoverá el desarrollo de las actividades de las Naciones Unidas para el mantenimiento de la paz.<br> 3. Los padres tendrán derecho preferente a escoger el tipo de educación que habrá de darse a sus hijos.</p> 
+          <h4>Artículo 27&nbsp;</h4> <p>1. Toda persona tiene derecho a tomar parte libremente en la vida cultural de la comunidad, a gozar de las artes y a participar en el progreso científico y en los beneficios que de él resulten.<br> 2. Toda persona tiene derecho a la protección de los intereses morales y materiales que le correspondan por razón de las producciones científicas, literarias o artísticas de que sea autora.</p> <h4>Artículo 28&nbsp;</h4> <p>Toda persona tiene derecho a que se establezca un orden social e internacional en el que los derechos y libertades proclamados en esta Declaración se hagan plenamente efectivos.</p> <h4>Artículo 29&nbsp;</h4> <p>1. Toda persona tiene deberes respecto a la comunidad, puesto que sólo en ella puede desarrollar libre y plenamente su personalidad.<br> 2. En el ejercicio de sus derechos y en el disfrute de sus libertades, toda persona estará solamente sujeta a las limitaciones establecidas por la ley con el único fin de asegurar el reconocimiento y el respeto de los derechos y libertades de los demás, y de satisfacer las justas exigencias de la moral, del orden público y del bienestar general en una sociedad democrática.<br> 3. Estos derechos y libertades no podrán, en ningún caso, ser ejercidos en oposición a los propósitos y principios de las Naciones Unidas.</p> 
+          <h4>Artículo 30&nbsp;</h4> <p>Nada en esta Declaración podrá interpretarse en el sentido de que confiere derecho alguno al Estado, a un grupo o a una persona, para emprender y desarrollar actividades o realizar actos tendientes a la supresión de cualquiera de los derechos y libertades proclamados en esta Declaración.</p>  
+        </div>
+      </div>  
+
+      <div id="tabMenu" class="apu-tab apu-franjascrollvertical">
+        <div class="w3-container">
+          menú...<br>
+          <button class="w3-margin-bottom w3-btn w3-black" onclick="hazPopup();">Popup</button>
+          <br>
+          <button id="botAlert" class="w3-button w3-black" onclick="alert('hola');">Dime hola...</button>
+        </div>
+      </div> 
+
+      <div class="apu-franjaabajo">
+        <div class="w3-red w3-small w3-center w3-footer">Hecho con APU</div>
+      </div>
+    </div>
+
+<!-- The Modal & Company TODO: renderizar con $apu, al llamar a $apu.showmodal-->
+<div id="apuDialog" class="w3-modal w3-display-middle">
+  <div class="w3-modal-content w3-light-gray w3-round">
+
+      <div id="titmodal" class="w3-xlarge w3-margin w3-center">MSAL Log</div>
+      <div id="txtmodal" class="w3-padding w3-text-black">...</div>
+
+      <div class="w3-transparent w3-center w3-footer">
+        <div onclick="document.getElementById('apuDialog').style.display='none'"
+        class="w3-btn w3-margin w3-small w3-margin w3-green w3-round">Cerrar</div>
+        <div onclick="$apu.copy2clipboard('txtmodal')"
+        class="w3-btn w3-margin w3-small w3-margin w3-gray w3-round">Copiar</div>
+      </div>
+
+  </div>
+</div>
+
+<div id="apuWait" class="w3-modal w3-display-middle">
+  <div class="w3-modal-content w3-light-gray w3-round" onclick="alert('ops');">
+    <div id="titwait" class="w3-xlarge w3-margin w3-center"></div>
+    <div id="txtwait" class="w3-margin w3-center"></div>
+  </div>
+  <div id="spinnerwheeldiv" class="w3-middle w3-center w3-margin">
+      <img id="spinnerwheelimg" alt="Espere..." class="w3-spin w3-margin" src="/img/circles-loader.png">
+  </div>
+</div>
+  
+<!-- The Modal -->
+
+  </body>
+
+</html>

@@ -1,0 +1,15 @@
+/* crea aquí los estilos que sean específicos de la aplicación */
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+#panLogin { 
+  background: url(/appimg/fotofondo.jpg) no-repeat fixed center;
+  background-size: cover;
+}
+
+.fondo-verde {
+  background-color: greenyellow;
+}
