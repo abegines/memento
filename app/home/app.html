@@ -3,8 +3,8 @@
 
   <head>
     <meta charset="utf-8">
-    <title>la Aplicación APU</title>
-    <meta name="apple-mobile-web-app-title" content="la Aplicación">
+    <title>Memento</title>
+    <meta name="apple-mobile-web-app-title" content="Memento">
     <meta name="theme-color" content="#FF0000">
     <meta name="apple-mobile-web-app-status-bar" content="#FF0000">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-traslucent">
@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="/css/apu.css">
     <link rel="stylesheet" href="/app.css">
 
+    <script src="https://kit.fontawesome.com/a99a7f96e2.js" crossorigin="anonymous"></script>
+    
     <script src="/apulib/apulib.js"></script>           
     <script src="/fca/fca.js"></script>    
     <script src="/fcg/fcg.js"></script>
@@ -44,11 +46,14 @@
   <body class="w3-white">
     <div id ="panLogin" class="apu-pantalla w3-center w3-red">
       
-      <div class="w3-xxlarge w3-red w3-margin w3-round w3-card-4">
-            la Aplicación
+      <div class="w3-xxlarge w3-text-dark-gray w3-yellow w3-margin w3-round w3-card-4">
+        <img src="/appimg/icons/frog.svg" height="32">&nbsp;
+        <span class="fa fa-frog"></span>&nbsp;
+        &#x1F438;&nbsp;
+        memento
       </div>
 
-      <div id="offLine" class="tab-onoff w3-large w3-display-middle w3-white w3-padding w3-round w3-card-4">
+      <div id="offLine" class="tab-onoff w3-large w3-display-middle w3-dark-gray w3-padding w3-round w3-card-4">
         <p>No estás conectado a red</p>
         <br><br>
         <div id="offLineReintentar" class="w3-btn w3-round w3-padding w3-black">Reintentar</div>
@@ -56,7 +61,7 @@
       </div>
 
       <div id="onLine" class="tab-onoff w3-display-middle">
-        <div id="cardLogin" class="w3-light-gray w3-large w3-padding w3-round w3-card-4">
+        <div id="cardLogin" class="w3-yellow w3-text-dark-gray w3-large w3-padding w3-round w3-card-4">
           <p>Acceder con...</p>
           <img id="botMicrosoft" alt="Signin with Microsoft" class="w3-btn w3-round apu-nopadding" src="/img/ms-symbollockup_signin_dark.png">
           <br><br>
@@ -64,7 +69,7 @@
           <br>
         </div>
         
-        <div id="cardInstall" class="w3-light-gray w3-padding w3-round w3-card-4 w3-small w3-margin-top">
+        <div id="cardInstall" class="w3-yellow w3-text-red w3-padding w3-round w3-card-4 w3-small w3-margin-top">
           <p>Ten siempre la aplicación a mano como un icono en la pantalla principal</p>
           <div id="botInstalar" class="w3-btn w3-round w3-padding w3-red w3-text-white w3-font-bold"><strong>Instalar</strong></div>
           <div id="botLog" class="w3-btn w3-round w3-padding w3-gray w3-hide">my log</div>
@@ -75,10 +80,10 @@
     <div id ="panPrincipal" class="apu-pantalla">
       
       <div class="apu-franjaarriba">
-        <div class="w3-red w3-xxlarge w3-center" >
-          la Aplicación
+        <div class="w3-yellow w3-text-dark-gray w3-xxlarge w3-center" >
+          &#x1F425;&nbsp;memento
         </div>
-        <div class="w3-bar w3-black">
+        <div class="w3-bar w3-dark-gray">
           <button id="botFicha" class="w3-bar-item w3-button">Ficha</button>
           <button id="botImagenes" class="w3-bar-item w3-button">Imágenes</button>
           <button id="botDerechos" class="w3-bar-item w3-button">Derechos</button>
@@ -153,7 +158,7 @@
       </div> 
 
       <div class="apu-franjaabajo">
-        <div class="w3-red w3-small w3-center w3-footer">Hecho con APU</div>
+        <div class="w3-yellow w3-text-dark-gray w3-small w3-center w3-footer">Hecho con APU</div>
       </div>
     </div>
 
