@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="es-ES" class="w3-gray">
+<HTML lang="es-ES" class="w3-gray">
 
-  <head>
+  <HEAD>
     <meta charset="utf-8">
-    <title>Memento</title>
+    <title>memento</title>
     <meta name="apple-mobile-web-app-title" content="memento">
     <meta name="theme-color" content="#FF0000">
     <meta name="apple-mobile-web-app-status-bar" content="#FF0000">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-traslucent">
     <meta name="description" content="una aplicación APU">
     <meta name="apple-mobile-web-app-capable" content="yes">
-
+    
     <link rel="apple-touch-icon" href="/appimg/icons/icon-128x128.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/appimg/icons/icon-192x192.png">
     <link rel="icon" type="image/png" sizes="128x128" href="/appimg/icons/icon-128x128.png">
@@ -38,18 +38,18 @@
     
     <!-- <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.1.2/js/msal.js"></script> -->
     <script src="/js/msal.js"></script>
+    
     <noscript>
       <meta http-equiv="refresh" content="0;url=noscript.html">
     </noscript>
-  </head>
 
-  <body class="w3-dark-gray">
-    <div id ="panLogin" class="apu-pantalla w3-center w3-red">
+  </HEAD>
+
+  <BODY class="w3-dark-gray">
+    <div id ="panLogin" class="apu-pantalla w3-center w3-dark-gray">
       
       <div class="w3-xxlarge w3-text-dark-gray w3-amber w3-margin w3-round w3-card-4">
-        <img src="/appimg/icons/frog.svg" height="32">&nbsp;
-        <span class="fa fa-frog"></span>&nbsp;
-        &#x1F438;&nbsp;
+        <img src="/appimg/icons/thinking.svg" height="32">&nbsp;
         <strong>memento</strong>
       </div>
 
@@ -77,41 +77,43 @@
         </div>
       </div>
     </div>
+
     <div id ="panPrincipal" class="apu-pantalla">
-      
-      <div class="apu-franjaarriba">
-        <div class="w3-xxlarge w3-text-dark-gray w3-amber w3-center">
-          <img src="/appimg/icons/frog.svg" height="32">&nbsp;
-          <span class="fa fa-frog"></span>&nbsp;
-          &#x1F438;&nbsp;
-          <strong>memento</strong>
-        </div>
-        <div class="w3-bar w3-black w3-text-amber">
-          <button id="botFicha" class="w3-bar-item w3-button">Ficha</button>
-          <button id="botImagenes" class="w3-bar-item w3-button">Imágenes</button>
-          <button id="botDerechos" class="w3-bar-item w3-button">Derechos</button>
-          <button id="botMenu" class="w3-bar-item w3-button w3-right">&#x2630;</button>
-        </div>
+    
+     
+      <div class="apu-franjaarriba w3-xxlarge w3-text-dark-gray w3-amber w3-center">
+        <button id="botInicio" class="w3-hide-small w3-button w3-xlarge w3-left">&#x2302;</button>
+        <button id="botNuevo" class="w3-hide-small w3-button w3-xlarge w3-left">+</button>
+        <span class="w3-margin w3-center">memento</span>
+        <button id="botMenu" class="w3-button w3-xlarge w3-right">&#x2630;</button>
+
+        <button id="botLupa" class="w3-hide-small w3-button w3-xlarge w3-right">&#x1F50D;</button>
+
+
+      </div>
+      <div class="w3-xxlarge">&nbsp;</div> <!-- queda detrás de franjaarriba -->
+
+      <div class="w3-bar w3-black w3-text-amber">
+
+
+        <button id="botFicha1" class="w3-bar-item w3-button">Ficha</button>
+        <button id="botImagenes" class="w3-bar-item w3-button">Imágenes</button>
+        <button id="botDerechos" class="w3-bar-item w3-button">Derechos</button>
+        <button id="botFicha" class="w3-bar-item w3-button">#4425</button>
+        <button id="botFicha3" class="w3-bar-item w3-button">Ficha</button>
+        <button id="botFicha4" class="w3-bar-item w3-button">Ficha</button>
+        <button id="botFicha5" class="w3-bar-item w3-button">Ficha</button>
+        <button id="botFicha6" class="w3-bar-item w3-button">Ficha</button>
+        <button id="botFicha7" class="w3-bar-item w3-button">Ficha</button>
+        <button id="botFicha8" class="w3-bar-item w3-button">Ficha</button>
+        <button id="botFicha9" class="w3-bar-item w3-button">Ficha</button>
+
       </div>
 
-      <div id="tabFicha" class="apu-tab w3-dark-gray w3-text-amber">
+      <div id="tabFicha" class="apu-tab w3-text-amber">
         <div class="w3-container">
-
-          <div id="txtUserName" class="w3-xlarge"></div>
-          <div id="txtUserEmail" class="w3-small"></div>
-          <br>
-          <img id="imgUserPicture" src="" class="w3-circle" alt="imágen de usuario">
-          <br>
-          <button id="botMenuLogout" class="w3-margin-bottom w3-btn w3-black w3-margin">Logout</button>
-          <br>
-          <button id="muestraLog" class="w3-btn w3-green w3-margin">Muestra log...</button>
-          <br>
-          <button id="muestraWait" class="w3-btn w3-green w3-margin">Wait...</button>
-
-          <p>El veloz <strong>murciélago</strong> hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.</p>
-
+          <p>El veloz <strong>murciélago</strong> hindú comía feliz <span class="tooltip">cardillo<span class="tooltiptext">¿Qué demonios es cardillo?</span></span> y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.</p>
         </div>
-
       </div> 
 
       <div id="tabImagenes" class="apu-tab w3-dark-gray w3-text-amber">
@@ -153,49 +155,58 @@
         </div>
       </div>  
 
-      <div id="tabMenu" class="apu-tab apu-franjascrollvertical">
+      <div id="tabMenu" class="apu-tab">
         <div class="w3-container">
-          menú...<br>
-          <button class="w3-margin-bottom w3-btn w3-black" onclick="hazPopup();">Popup</button>
+          <div id="txtUserName" class="w3-xlarge"></div>
+          <div id="txtUserEmail" class="w3-small"></div>
           <br>
-          <button id="botAlert" class="w3-button w3-black" onclick="alert('hola');">Dime hola...</button>
+          <img id="imgUserPicture" src="" class="w3-circle" alt="imágen de usuario">
+          <br>
+          <button id="botMenuLogout" class="w3-btn w3-black w3-margin">Logout</button>
+          <br>
+          <button id="muestraLog" class="w3-btn w3-green w3-margin">Muestra log...</button>
+          <br>
+          <button id="muestraWait" class="w3-btn w3-green w3-margin">Wait...</button>
+          <br>
+          <button class="w3-btn w3-black w3-margin" onclick="hazPopup();">Popup</button>
+          <br>
+          <button class="w3-btn w3-black w3-margin" onclick="alert('hola');">Dime hola...</button>
         </div>
       </div> 
 
-      <div class="apu-franjaabajo">
-        <div class="w3-amber w3-text-dark-gray w3-small w3-center w3-footer">Hecho con APU</div>
+      <div class="w3-small">&nbsp;</div> <!-- queda detrás de franjaabajo-->
+      <div class="apu-franjaabajo w3-amber w3-text-dark-gray w3-small w3-center w3-footer">Hecho con APU</div>
+    </div>
+
+    <!-- The Modal & Company TODO: renderizar con $apu, al llamar a $apu.showmodal-->
+    <div id="apuDialog" class="w3-modal w3-display-middle">
+      <div class="w3-modal-content w3-light-gray w3-round">
+
+          <div id="titmodal" class="w3-xlarge w3-margin w3-center">MSAL Log</div>
+          <div id="txtmodal" class="w3-padding w3-text-black">...</div>
+
+          <div class="w3-transparent w3-center w3-footer">
+            <div onclick="document.getElementById('apuDialog').style.display='none'"
+            class="w3-btn w3-margin w3-small w3-margin w3-green w3-round">Cerrar</div>
+            <div onclick="$apu.copy2clipboard('txtmodal')"
+            class="w3-btn w3-margin w3-small w3-margin w3-gray w3-round">Copiar</div>
+          </div>
+
       </div>
     </div>
 
-<!-- The Modal & Company TODO: renderizar con $apu, al llamar a $apu.showmodal-->
-<div id="apuDialog" class="w3-modal w3-display-middle">
-  <div class="w3-modal-content w3-light-gray w3-round">
-
-      <div id="titmodal" class="w3-xlarge w3-margin w3-center">MSAL Log</div>
-      <div id="txtmodal" class="w3-padding w3-text-black">...</div>
-
-      <div class="w3-transparent w3-center w3-footer">
-        <div onclick="document.getElementById('apuDialog').style.display='none'"
-        class="w3-btn w3-margin w3-small w3-margin w3-green w3-round">Cerrar</div>
-        <div onclick="$apu.copy2clipboard('txtmodal')"
-        class="w3-btn w3-margin w3-small w3-margin w3-gray w3-round">Copiar</div>
+    <div id="apuWait" class="w3-modal w3-display-middle">
+      <div class="w3-modal-content w3-light-gray w3-round" onclick="alert('ops');">
+        <div id="titwait" class="w3-xlarge w3-margin w3-center"></div>
+        <div id="txtwait" class="w3-margin w3-center"></div>
       </div>
+      <div id="spinnerwheeldiv" class="w3-middle w3-center w3-margin">
+          <img id="spinnerwheelimg" alt="Espere..." class="w3-spin w3-margin" src="/img/circles-loader.png">
+      </div>
+    </div>
+      
+    <!-- The Modal -->
 
-  </div>
-</div>
+  </BODY>
 
-<div id="apuWait" class="w3-modal w3-display-middle">
-  <div class="w3-modal-content w3-light-gray w3-round" onclick="alert('ops');">
-    <div id="titwait" class="w3-xlarge w3-margin w3-center"></div>
-    <div id="txtwait" class="w3-margin w3-center"></div>
-  </div>
-  <div id="spinnerwheeldiv" class="w3-middle w3-center w3-margin">
-      <img id="spinnerwheelimg" alt="Espere..." class="w3-spin w3-margin" src="/img/circles-loader.png">
-  </div>
-</div>
-  
-<!-- The Modal -->
-
-  </body>
-
-</html>
+</HTML>
