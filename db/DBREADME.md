@@ -38,10 +38,10 @@ Esta tabla contiene un registro por cada usuario que se enrole en la aplicación
 Todos los usuarios comienzan siendo "Invitados" y sólo un Administrador puede cambiar su nivel.  
 El primer usuario que accede a la aplicación pasa a ser administrador si aún no hay ninguno definido.  
 ```
-numUsuario (pk, autonum)
-Email (tx) // la forma de asociar un login con el usuario…
-Nombre (tx)
-NivelUsuario (Invitado, Usuario, Colaborador, Técnico, Administrador)
+id (pk, autonum)
+email (tx) // la forma de asociar un login con el usuario…
+nombre (tx)
+nivelUsuario (Invitado, Usuario, Colaborador, Técnico, Administrador)
 esActivo (t/f)	
 ```
 ## Tabla: Estado
@@ -261,7 +261,13 @@ esCompartida (si la cripta es pública, que pueden usarla todos los que conozcan
 
 Al crear una cripta... en el lado browser se calcula el hashCripta de esta manera...  
 ```
-hashCripta = HASH (nomCripta + numPropietario + CONTRASEÑA)
+hashCripta = HASH (nomCripta + numPropietario + CONTRASEÑA)  
+// necesitaríamos que el usuario especifique cual cripta usar
+// dos criptas con la misma contraseña no se detectaría
+ó
+
+hashCripta = HASH (nomCripta) 
+// el servidor buscará cualquier cripta que coincida, no hace falta que se especifique
 ```
 (la contraseña no viaja, ni la conoce el servidor)  
 
