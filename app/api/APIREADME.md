@@ -102,7 +102,7 @@ Todas las funciones devuelven un objeto que indica si hubo éxito u error, usand
   { err: 0, ... }
   { /* err no existe */ ... }
 
-// cualquier valor "no falso" en javascript, indica que
+// cualquier valor "no falso" en javascript, indica que hubo error
   { err: true, ... }
   { err: 2, ... }
   { err: 'problemo', ... }
