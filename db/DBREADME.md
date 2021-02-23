@@ -192,7 +192,6 @@ numNota (pk, autonum)
 TituloNota (tx)
 TextoNota (párrafo)
 numUsuario (fk Usuario) // el que anota originalmente
-esEncriptado (bool)
 	
 esVisibleUsuario (bool)
 esTachado (bool)
@@ -207,7 +206,8 @@ NuevoEstado (solamente si provoca cambio de estado)
 NuevaEtapa (solamente si provoca cambio etapa)
 NuevaImportancia (solamente si provoca cambio importancia)
 
-nomCripta (null si no está encriptado)
+esEncriptado (bool)
+idCripta (null si no está encriptado)
 ```
 
 ## Tabla: Adjunto
@@ -253,7 +253,8 @@ Los usuarios pueden compartir por un medio seguro estas claves simétricas si as
 Solo pueden usar la cripta los usuarios que conocen la contraseña que se utilizó para generar la misma y que es precisamente la misma que se utiliza para encriptar el texto plano. 
 
 ```
-nomCripta (pk, nombre de la cripta)
+idCripta (pk)
+nomCripta (ak, nombre de la cripta)
 hashCripta (el hash de la contraseña de esta cripta)
 numPropietario (el id del usuario propietario de la cripta, quien la ha creado)
 esCompartida (si la cripta es pública, que pueden usarla todos los que conozcan la password)
