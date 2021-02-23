@@ -53,9 +53,11 @@ Devuelve al cliente un objeto igual al que se devuelve en loginJwt o error en ca
 ---
 Devuelve un array con todos los usuarios, indicando para cada uno de ellos los atributos que necesita el cliente.
 
+>Sólo recibirá la lista completa de usuarios si el cliente tiene nivel superior o igual a colaborador (CTA). Si un invitado o usuario llama a esta función recibirá un array con un sólo registro: el de su propio usuario.
+
 Un ejemplo de datos devueltos sería:
 
->Sólo recibirá la lista completa de usuarios si el cliente tiene nivel superior o igual a colaborador (CTA). Si un invitado o usuario llama a esta función recibirá un array con un sólo registro: el de su propio usuario.
+
 
 ```js
 [ 
@@ -80,6 +82,7 @@ Un ejemplo de datos devueltos sería:
 ### **usuarioCambiaNivel** { idSesion, idUsuario, nuevoNivel }
 --- 
 Cambia el nivel del usuario indicado.
+>Sólo un ADMINISTRADOR puede ejecutar esta función.
 
 El primer parámetro **idSesion**, como en el resto de funciones, indica el idSesion del cliente obtenido con la función **loginJwt**
 El segundo parámetro **idUsuario**, indica el usuario al que hay que cambiar el nivel.
@@ -108,12 +111,11 @@ Todas las funciones devuelven un objeto que indica si hubo éxito u error, usand
   { err: 'problemo', ... }
 ```
 
->Sólo un ADMINISTRADOR puede ejecutar esta función.
 
 ### **usuarioCambiaActivo** { idSesion, idUsuario, nuevoEsActivo }
 ---
-
 Cambia si un usuario está activo o no.
+>Sólo un ADMINISTRADOR puede ejecutar esta función.
 
 El primer parámetro **idSesion**, como en el resto de funciones, indica el idSesion del cliente obtenido con la función **loginJwt**
 El segundo parámetro **idUsuario**, indica el usuario al que hay que cambiar el nivel.
@@ -127,5 +129,4 @@ El tercer parámetro **nuevoNivel**, indica cual es el nuevo nivel del usuario.
 }
 ```
 
->Sólo un ADMINISTRADOR puede ejecutar esta función.
 ---
