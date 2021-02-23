@@ -3,8 +3,8 @@
 La base de datos almacena toda la información que queremos tener registrada de los casos, sus notas, adjuntos, etiquetado, etc.  
 Además de la información necesaria para establecer autenticación y autorización.  
 
-
-### Enumerado: Niveles
+## Enumerado: Niveles
+---
 Esta lista de valores permite establecer a cada usuario uno de los cinco niveles del privilegios que contempla la aplicación.
 
 * **Invitado** (I)  
@@ -32,7 +32,8 @@ Se le pueden asignar casos.
 Puede ver cualquier caso, incluso los privados.   
 Marca y desmarca los casos como públicos/normales/privados.  
 
-### Tabla: Usuario
+## Tabla: Usuario
+---
 Esta tabla contiene un registro por cada usuario que se enrole en la aplicación.  
 Todos los usuarios comienzan siendo "Invitados" y sólo un Administrador puede cambiar su nivel.  
 El primer usuario que accede a la aplicación pasa a ser administrador si aún no hay ninguno definido.  
@@ -43,7 +44,8 @@ Nombre (tx)
 NivelUsuario (Invitado, Usuario, Colaborador, Técnico, Administrador)
 esActivo (t/f)	
 ```
-### Tabla: Estado 
+## Tabla: Estado
+---
 Los valores posibles del estado de asignación y terminación que tiene un caso  
 
 ```
@@ -80,7 +82,8 @@ Reabrir Y > X, Z > X
 Reasignar B -> B2 (cambio de técnico, estado específico)
 ```
 
-### Enumerado: Acceso
+## Enumerado: Acceso
+---
 Esta lista de valores permite establecer el acceso permitido a un caso en los situientes términos:
 
 * **Público** (-1)  
@@ -94,7 +97,8 @@ Estos casos pueden ser vistos solamente por los usuarios/colaboradores/técnicos
 Si un usuario quiere que sólo él pueda verlo debe asignarse como usuario y técnico del caso.
 
 
-### Tabla: Etapa
+## Tabla: Etapa
+---
 Esta es una tabla de dominio que permite asignar a cada caso la "etapa" de realización en que se encuentra.
 Pueden corresponder a alguna prioridad de triaje o a una columna de un panel Kanban. 
 (p.ej. A la mayor brevedad (triaje), Ahora, por favor (tiraje), No urgente (tiraje), Idea futura, Inbox desarrollo, Pendiente publicar, etc.)
@@ -108,7 +112,8 @@ iconoEtapa
 esDisponible // si puede usarse para nuevos casos o se conserva para integridad referencial
 ```
 
-### Tabla: Importancia
+## Tabla: Importancia
+---
 Esta es una tabla de dominio que permite asignar a cada caso una "importancia".
 Permite la asignación de prioridades, relevancia de un caso, etc.
 Por ejemplo, Normal, Importante, Caso Top, Legendario, etc.
@@ -121,7 +126,8 @@ iconoImportancia
 esDisponible // si puede usarse para nuevos casos o se conserva para integridad referencial
 ```
 
-### Tabla: Etiqueta
+## Tabla: Etiqueta
+---
 Esta tabla almacena un registro por cada una de las posibles etiquetas que pueden asignarse a los casos.  
 Por ejemplo: C#, JavaScript, IoT, Maker, 3dPrint, Proyecto1, Proyecto2, etc.  
 Podemos asignar el mismo color a todas las etiquetas que corresponden a un mismo dominio.  
@@ -139,7 +145,8 @@ cambiaAcceso (-1,0,+1) // al asignar esta etiqueta, cambia automáticamente el a
 esDisponible // si puede usarse para nuevos etiquetados o se conserva para integridad referencial
 ```
 
-### Concepto: Priorización de casos
+## Concepto: Priorización de casos
+---
 Vemos que tanto el Estado, como la Etapa o la Importancia tienen un campo de "prioridad".
 La suma de las prioridades del Estado, Etapa e Importancia de un caso determina la prioridad del caso.
 Un número mayor indica una mayor prioridad.
@@ -147,7 +154,8 @@ Un número mayor indica una mayor prioridad.
 Al crear las etapas, importancias y estados, podemos jugar con el peso de sus valores de prioridad para establecer un sistema de prioridades acorde a nuestro criterio.
 
 
-### Tabla: Caso
+## Tabla: Caso
+---
 Registra la cabecera de un caso, con su título, su párrafo, etc.
 
 ```
@@ -173,7 +181,8 @@ mmtReabierto
 Acceso (-1 Público, 0 Normal, +1 Privado)
 ```
 
-### Tabla: Nota
+## Tabla: Nota
+---
 Registra una nota dentro de la bitácora de un caso.
 
 ```
@@ -198,10 +207,11 @@ NuevoEstado (solamente si provoca cambio de estado)
 NuevaEtapa (solamente si provoca cambio etapa)
 NuevaImportancia (solamente si provoca cambio importancia)
 
+nomCripta (null si no está encriptado)
 ```
-(COMO VAMOS A ENCRIPTAR COMENTARIOS Y ADJUNTOS???)
 
-### Tabla: Adjunto
+## Tabla: Adjunto
+---
 Permite asociar a una nota de un caso un archivo adjunto (imagen, pdf, etc.)
 
 ```
@@ -211,9 +221,11 @@ numAdjunto (pk, autonumber)
 NombreAdjunto // con extensión incluida
 BlobAdjunto // el adjunto en un blob
 mmtAdjunto // el momento en que se adjuntó
+nomCripta (null si no está encriptado)
 ```
 
-### Tabla: CasoEtiqueta
+## Tabla: CasoEtiqueta
+---
 Permite asociar un caso con una de las etiquetas definidas
 
 ```
@@ -223,7 +235,8 @@ numEtiquetador (pk Usuario) // el usuario que ha etiquetado
 mmtEtiquetado (datetime) // el momento en que se etiquetó
 ```
 
-### Tabla: CasoUsuario
+## Tabla: CasoUsuario
+---
 Permite asociar un caso con usuarios adicionales  
 Para que pueda consultarlo aunque no sea el usuario y técnico asignados  
 ```
@@ -233,7 +246,34 @@ numAsociador (pk Usuario) // el usuario que lo ha asociado
 mmtAsociacion (datetime) // el momento en que se asoció
 ```  
 
-### Colección: Sesión (en memoria?)  
+## Tabla: Cripta
+---
+Cada registro de esta tabal es una representación de una clave que permite cifrado simétrico las notas (y adjuntos?) que se consideren confidenciales.
+Los usuarios pueden compartir por un medio seguro estas claves simétricas si así lo desean.
+Solo pueden usar la cripta los usuarios que conocen la contraseña que se utilizó para generar la misma y que es precisamente la misma que se utiliza para encriptar el texto plano. 
+
+```
+nomCripta (pk, nombre de la cripta)
+hashCripta (el hash de la contraseña de esta cripta)
+numPropietario (el id del usuario propietario de la cripta, quien la ha creado)
+esCompartida (si la cripta es pública, que pueden usarla todos los que conozcan la password)
+```
+
+Al crear una cripta, en el lado browser se calcula el hashCripta de esta manera...
+hashCripta = HASH (nomCripta + numPropietario + CONTRASEÑA)
+(la contraseña no viaja, ni la conoce el servidor)
+
+En el lado browser se hace una encriptación (AES?) del texto con la contraseña (que debe escribir cada vez que cifre un mensaje)
+Se envía el texto ya cifrado, la cripta utilizada y el hashCripta que se vuelve a generar.
+Si el hashCripta coincide con el almacenado en esta tabla para esa cripta, se puede guardar el texto. 
+Si no, se indicará que esa contraseña no es la de esa cripta.
+
+*Este mecanismo permite guardar notas cifradas que un administrador de la aplicación no puede ver ni siquiera a nivel SQL y además permite compartir la clave con otros usuarios si fuese necesario por algún medio seguro alternativo, sin tener que almacenarla en ningún sitio y sin tener que hacerla viajar. impidiendo que se equivoquen al introducirla. ¿o no?*
+
+*Se podrían idear otros métodos futuros para cambio de la contraseña de una cripta (que obligaría a reencriptar todos los comentarios cifrados con esa cripta), etc*
+
+## Colección: Sesión (en memoria?)  
+---
 Cada una de las sesiones que se mantienen activas en este momento en la aplicación.  
 ```
 idSesion (pk, guid)
@@ -241,3 +281,4 @@ numUsuario (fk Usuario)
 mmtInicioSesion (datetime)
 + resto campos usuario en el momento de inicio de sesión o actualizado
 ```
+
