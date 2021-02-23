@@ -259,18 +259,21 @@ numPropietario (el id del usuario propietario de la cripta, quien la ha creado)
 esCompartida (si la cripta es pública, que pueden usarla todos los que conozcan la password)
 ```
 
-Al crear una cripta, en el lado browser se calcula el hashCripta de esta manera...
+Al crear una cripta... en el lado browser se calcula el hashCripta de esta manera...  
+```
 hashCripta = HASH (nomCripta + numPropietario + CONTRASEÑA)
-(la contraseña no viaja, ni la conoce el servidor)
+```
+(la contraseña no viaja, ni la conoce el servidor)  
 
-En el lado browser se hace una encriptación (AES?) del texto con la contraseña (que debe escribir cada vez que cifre un mensaje)
-Se envía el texto ya cifrado, la cripta utilizada y el hashCripta que se vuelve a generar.
-Si el hashCripta coincide con el almacenado en esta tabla para esa cripta, se puede guardar el texto. 
-Si no, se indicará que esa contraseña no es la de esa cripta.
+Al guardar un comentario que se desea cifrar...   
+1. en el lado browser se hace una encriptación (AES?) del texto con la contraseña (que debe escribir cada vez que cifre un mensaje)  
+2. en el lado browser se vuelve a calcular el hashCripta
+3. se envía el texto ya cifrado, junto con el nombre de la cripta utilizada y el hashCripta calculado
+4. en el lado server... si el hashCripta coincide con el almacenado para esa cripta, se puede guardar el texto. 
 
-*Este mecanismo permite guardar notas cifradas que un administrador de la aplicación no puede ver ni siquiera a nivel SQL y además permite compartir la clave con otros usuarios si fuese necesario por algún medio seguro alternativo, sin tener que almacenarla en ningún sitio y sin tener que hacerla viajar. impidiendo que se equivoquen al introducirla. ¿o no?*
+*COMPROBAR SI: Este mecanismo permite guardar notas cifradas que un administrador de la aplicación no puede ver ni siquiera a nivel SQL y además permite compartir la clave con otros usuarios si fuese necesario por algún medio seguro alternativo, sin tener que almacenarla en ningún sitio y sin tener que hacerla viajar. impidiendo que se equivoquen al introducirla. ¿o no?*
 
-*Se podrían idear otros métodos futuros para cambio de la contraseña de una cripta (que obligaría a reencriptar todos los comentarios cifrados con esa cripta), etc*
+*Se podrían idear otros métodos futuros para cambio de la contraseña de una cripta (que obligaría a reencriptar todos los comentarios cifrados con esa cripta), pero entonces habría que prestar la clave un momentito al servidor..., ¿o no?*
 
 ## Colección: Sesión (en memoria?)  
 ---
